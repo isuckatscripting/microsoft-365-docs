@@ -74,8 +74,11 @@ You have to perform Step 1 only once to import PST files to Microsoft 365 mailbo
   - Specify the **TRUE** value in the  `IsArchive` parameter.
 
     See [Step 4](#step-4-create-the-pst-import-mapping-file) for more information.
+    
+> [!IMPORTANT]
+  > After PST files are imported, the retention hold setting for the mailbox is turned on for an indefinite duration. If a retention policy is assigned to the mailbox it won't be processed until you turn off the retention hold or set a date to turn off the hold.
 
-- After PST files are imported, the retention hold setting for the mailbox is turned on for an indefinite duration. This means that the retention policy assigned to the mailbox won't be processed until you turn off the retention hold or set a date to turn off the hold. Why do we do this? If messages imported to a mailbox are old, they might be permanently deleted (purged) because their retention period has expired based on the retention settings configured for the mailbox. Placing the mailbox on retention hold gives the mailbox owner time to manage these newly imported messages or give you time to change the retention settings for the mailbox. See the [More information](#more-information) section in this topic for suggestions about managing the retention hold.
+- If messages imported to a mailbox are old, they might be permanently deleted (purged) because their retention period has expired based on the retention settings configured for the mailbox. Placing the mailbox on retention hold gives the mailbox owner time to manage these newly imported messages or give you time to change the retention settings for the mailbox. See the [More information](#more-information) section in this topic for suggestions about managing the retention hold.
 
 - By default, the maximum message size that can be received by a Microsoft 365 mailbox is 35 MB. That's because the default value for the  *MaxReceiveSize*  property for a mailbox is set to 35 MB. However, the limit for the maximum message receive size in Microsoft 365 is 150 MB. So if you import a PST file that contains an item larger than 35 MB, the Office 365 Import service we will automatically change the value of the  *MaxReceiveSize*  property on the target mailbox to 150 MB. This allows messages up to 150 MB to be imported to user mailboxes.
 
